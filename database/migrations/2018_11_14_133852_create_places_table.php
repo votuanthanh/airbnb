@@ -18,6 +18,7 @@ class CreatePlacesTable extends Migration
             $table->integer('user_id')->index();
             $table->text('name');
             $table->integer('city_id')->index();
+            $table->integer('amenity_id')->index();
             $table->text('discription')->nullable();
             $table->integer('number_rooms');
             $table->integer('number_bathrooms');
