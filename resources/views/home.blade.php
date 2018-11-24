@@ -83,10 +83,14 @@
                 <div class="row">
                     <hr>
                     @foreach($rooms as $room)
+                        @php
+                            $image = $room->photos()->first();
+                            $fileName = $image ? $image->name : 'default.jpg';
+                        @endphp
                         <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading preview">
-                                    <img src="{{ asset("images/rooms/".$room->photos[0]->name) }}">
+                                    <img src="{{ asset("images/rooms/".$fileName) }}">
                                 </div>
                                 <div class="panel-body">
                                     <img class="img-circle avatar-small" src="{{ Gravatar::get($room->user->email) }}" alt="">

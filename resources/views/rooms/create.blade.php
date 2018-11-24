@@ -17,7 +17,7 @@
                             <select id="home_type" class="form-control" name="home_type" required>
                                 <option value="Apartment">Apartment</option>
                                 <option value="House">House</option>
-                                <option value="Bed & Breakfast">Bed & Breakfast</option>
+                                <option value="Bed & Breakfast">Bed and Breakfast</option>
                                 <option value="Apartment">Apartment</option>
                             </select>
                         </div>

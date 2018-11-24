@@ -20,9 +20,13 @@
                 <div class="panel-body">
 
                     @foreach($rooms as $room)
+                        @php
+                            $image = $room->photos()->first();
+                            $fileName = $image ? $image->name : 'default.jpg';
+                        @endphp
                         <div class="row">
                             <div class="col-md-2">
-                                <img class="img-responsive" src="{{ asset("images/rooms/".$room->photos[0]->name) }}">
+                                <img class="img-responsive" src="{{ asset("images/rooms/".$fileName) }}">
                             </div>
                             <div class="col-md-7">
                                 <h4>{{ $room->listing_name }}</h4>
