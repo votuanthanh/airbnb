@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-3">
             <ul class="sidebar-list">
-                <li class="sidebar-item active"><a href="{{ route('rooms') }}">Room List</a></li>
+                <li class="sidebar-item active"><a href="{{ route('rooms.index') }}">Room List</a></li>
                 <li class="sidebar-item"><a href="{{ route('your-reservations') }}">Bookings</a></li>
                 <li class="sidebar-item"><a href="{{ route('your-trips') }}">Trips</a></li>
             </ul>
@@ -32,7 +32,7 @@
                                 <h4>{{ $room->listing_name }}</h4>
                             </div>
                             <div class="col-md-3 right">
-                                <a href="#" class="btn btn-primary">Update</a>
+                                <a href="{{ route('rooms.edit', ['id' => $room->id]) }}" class="btn btn-primary">Update</a>
                             </div>
                         </div>
                         <hr>

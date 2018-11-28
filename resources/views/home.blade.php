@@ -11,10 +11,10 @@
                         <input type="text" placeholder="Destination" class="form-control" name="search">
                     </div>
                     <div class="col-md-2">
-                        <input type="text" placeholder="Start Date" class="form-control" name="start_date">
+                        <input type="text" id="reservation_start_date" placeholder="Start Date" class="form-control" name="start_date">
                     </div>
                     <div class="col-md-2">
-                        <input type="text" placeholder="End Date" class="form-control" name="end_date">
+                        <input type="text" id="reservation_end_date" placeholder="End Date" class="form-control" name="end_date">
                     </div>
                     <div class="col-md-2">
                         <input type="submit" class="btn btn-primary" value="Search">
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <img class="img-circle avatar-small" src="{{ Gravatar::get($room->user->email) }}" alt="">
-                                    <a href="">{{ $room->listing_name }}</a>
+                                    <a href="{{ route('rooms.show', ['id' => $room]) }}">{{ $room->listing_name }}</a>
                                 </div>
                             </div>
                         </div>
@@ -103,4 +103,29 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            $('#reservation_start_date').datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                maxDate: '3m',
+                onSelect: function (selected) {
+                    $('#reservation_end_date').datepicker("option", "minDate", selected);
+                }
+            });
+
+            $('#reservation_end_date').datepicker({
+                dateFormat: 'yy-mm-dd',
+                minDate: 0,
+                maxDate: '3m',
+                onSelect: function (selected) {
+                    $('#reservation_start_date').datepicker("option", "maxDate", selected);
+                }
+            });
+        })
+    </script>
 @endsection

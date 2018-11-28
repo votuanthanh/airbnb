@@ -12,7 +12,7 @@ class ReservationController extends Controller
     {
         Auth::user()->reservations()->create([
             'room_id' => $request->room_id,
-            'start_date' => $request->start_date,
+            'start_date' => date('Y-m-d', strtotime($request->start_date)),
             'end_date' => $request->end_date,
             'price' => $request->price,
             'total' => $request->total

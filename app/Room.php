@@ -35,4 +35,12 @@ class Room extends Model
     {
         return (boolean)(Wishlist::where('room_id', $this->id)->where('user_id', Auth::id())->first());
     }
+
+    public function coverImage() {
+        $firstPhoto = $this->photos()->first();
+
+        $namePhoto = $firstPhoto ? $firstPhoto->name : 'default.jpg';
+
+        return asset('/images/rooms/' . $namePhoto);
+    }
 }
