@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title')Show room @endsection
+@section('title')
+    Show room
+@endsection
 
 @section('content')
     <div class="panel panel-default">
@@ -8,12 +10,12 @@
             <!-- image -->
             <div class="row">
                 <div class="col-md-12">
-                    <img style="width: 100%" src="{{asset('/images/rooms/' . $room->photos[0]->name)}}"
+                    <img style="width: 400px; height: 200px" src="{{ $room->coverImage() }}"
                          class="img-responsive center-block">
                 </div>
             </div>
 
-            <br>
+            <hr>
 
             <!-- Main Info -->
             <div class="row">
@@ -26,7 +28,8 @@
                         </div>
 
                         <div class="col-md-9">
-                            <h4>{{ $room->listing_name }}</h4>
+                            <h1>{{ $room->listing_name }}</h1>
+                            <b>Address: </b>
                             {{$room->address}}
 
                             <div class="row text-center row-space-1">
@@ -61,6 +64,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-4">
                     @include('layouts.reservation-form')
                 </div>
@@ -98,16 +102,17 @@
                                 <input type="hidden" name="room_id" value="{{ $room->id }}">
                                 @if(!$room->wish())
                                     <input type="hidden" name="islisted" value="0">
-                                    <input type="submit" href="" class="btn btn-success" value="Add to wishlist"/>
+                                    <input type="submit" href="" class="btn btn-success" value="Add to favorate"/>
                                 @else
                                     <input type="hidden" name="islisted" value="1">
-                                    <input type="submit" href="" class="btn btn-danger" value="Remove from wishlist"/>
+                                    <input type="submit" href="" class="btn btn-danger" value="Remove from favorate"/>
                                 @endif
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Carousel -->
             <div class="row">

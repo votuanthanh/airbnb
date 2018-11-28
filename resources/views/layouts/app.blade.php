@@ -83,7 +83,7 @@
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ route('rooms') }}">Room List</a>
+                                    <a href="{{ route('rooms.index') }}">Room List</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('rooms.create') }}">Add a new room</a>

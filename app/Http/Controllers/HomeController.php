@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $rooms = Room::with('photos')->get();
+        $rooms = Room::where('active', 1)->with('photos')->get();
         
         return view('home', compact('rooms'));
     }

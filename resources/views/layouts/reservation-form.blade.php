@@ -10,11 +10,11 @@
         <div class="col-md-6">
             <label>Check In</label>
             <input type="text" id="reservation_start_date" name="start_date" class="form-control"
-                   placeholder="Start date">
+                   placeholder="yyyy-mm-dd">
         </div>
         <div class="col-md-6">
             <label>Check Out</label>
-            <input type="text" id="reservation_end_date" name="end_date" class="form-control" placeholder="End date">
+            <input type="text" id="reservation_end_date" name="end_date" class="form-control" placeholder="yyyy-mm-dd">
         </div>
     </div>
 
