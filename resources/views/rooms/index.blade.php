@@ -28,11 +28,14 @@
                             <div class="col-md-2">
                                 <img class="img-responsive" src="{{ asset("images/rooms/".$fileName) }}">
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-6">
                                 <h4>{{ $room->listing_name }}</h4>
                             </div>
-                            <div class="col-md-3 right">
+                            <div class="col-md-2">
                                 <a href="{{ route('rooms.edit', ['id' => $room->id]) }}" class="btn btn-primary">Update</a>
+                            </div>
+                            <div class="col-md-2 right">
+                                <a href="{{ route('room_delete', ['id' => $room->id]) }}" class="btn btn-primary" style="background: red;">Delete</a>
                             </div>
                         </div>
                         <hr>

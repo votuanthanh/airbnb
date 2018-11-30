@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-3">
             <ul class="sidebar-list">
-                <li class="sidebar-item"><a href="{{ route('rooms') }}">Room List</a></li>
+                <li class="sidebar-item"><a href="{{ route('rooms.index') }}">Room List</a></li>
                 <li class="sidebar-item">
                     <a href="{{ route('your-reservations') }}">Bookings</a>
                 </li>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-md-2">
                                 <a href="">
-                                    <img src="{{ Gravatar::get($trip->user->email, ['size'=>30]) }}" alt="">
+                                    <img src="{{ asset('/images/avatar.jpg') }}" class="icon" alt="">
                                 </a>
                             </div>
                             <div class="col-md-2 right">

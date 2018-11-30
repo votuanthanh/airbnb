@@ -142,6 +142,14 @@ class RoomController extends Controller
             \Log::info($e);
         }
     }
+
+    public function room_delete($id)
+    {
+        $room = Room::with('user', 'photos')->where('id', $id)->first();
+        $room->delete();
+                
+        return redirect('/rooms');
+    }
 }
 
 

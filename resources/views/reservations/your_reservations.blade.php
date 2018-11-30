@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-3">
             <ul class="sidebar-list">
-                <li class="sidebar-item"><a href="{{ route('rooms') }}">Room List</a></li>
+                <li class="sidebar-item"><a href="{{ route('rooms.index') }}">Room List</a></li>
                 <li class="sidebar-item">
                     <a href="{{ route('your-reservations') }}" class=" sidebar-link active">Bookings</a>
                 </li>
@@ -24,19 +24,22 @@
                     @foreach($rooms as $room)
                         @foreach($room->reservations as $reservation)
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     {{ \Carbon\Carbon::parse($reservation->start_date)->diffForHumans() }}
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <img class="img-responsive" style="width: 150px" src="{{ asset("images/rooms/".$reservation->room->photos[0]->name) }}">
                                 </div>
                                 <div class="col-md-2">
                                     <a href="">
-                                        <img src="{{ Gravatar::get($reservation->user->email, ['size'=>30]) }}" alt="">
+                                        <img src="{{ asset('/images/avatar.jpg') }}" class="icon" alt="">
                                     </a>
                                 </div>
-                                <div class="col-md-2 right">
+                                <div class="col-md-2">
                                     <h4>${{ $reservation->total }}</h4>
+                                </div>
+                                <div class="col-md-2 right">
+                                    <a href="{{ route('reservations.destroy', ['id'=>$reservation->id]) }}" class="btn btn-danger">Cancel</a>
                                 </div>
                             </div>
                             <hr>

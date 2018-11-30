@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') | AirBnb</title>
+    <title>@yield('title') | Airbnb</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -32,6 +32,11 @@
             font-size: 2em;
             font-weight: 400;
         }
+        .icon{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -51,7 +56,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    AirBnb
+                    Airbnb
                 </a>
             </div>
 
@@ -77,7 +82,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false" aria-haspopup="true" v-pre>
-                                <img src="{{ Gravatar::get(Auth::user()->email, ['size'=>30]) }}" alt="">
+                                <img src="{{ asset('/images/avatar.jpg') }}" class="icon" alt="">
                                 {{ Auth::user()->fullname }} <span class="caret"></span>
                             </a>
 
