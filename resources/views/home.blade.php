@@ -93,8 +93,8 @@
                                     <img src="{{ asset("images/rooms/".$fileName) }}">
                                 </div>
                                 <div class="panel-body">
-                                    <img class="img-circle avatar-small" src="{{ Gravatar::get($room->user->email) }}" alt="">
-                                    <a href="{{ route('rooms.show', ['id' => $room]) }}">{{ $room->listing_name }}</a>
+                                    <img src="{{ asset('/images/avatar.jpg') }}" class="icon" alt="">
+                                    <a href="{{ route('rooms.show', ['id' => $room]) }}">  {{ $room->listing_name }}</a>
                                 </div>
                             </div>
                         </div>

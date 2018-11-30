@@ -39,4 +39,22 @@ class ReservationController extends Controller
 
         return view('reservations.your_trips', compact('trips'));
     }
+
+    public function show($id)
+    {
+        $reservation = Auth::user()->reservations()->where('id', $id)->first();
+        $reservation->delete();
+
+        return redirect('/your_reservations');
+    }
+
+    public function index()
+    {
+        $rooms = Auth::user()->rooms;
+
+        return view('reservations.your_reservations', compact('rooms'));
+    }
+
+    public function destroy($id){
+    }
 }

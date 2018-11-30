@@ -11,8 +11,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('reservations/store', 'ReservationController@store')->name('reservation.store');
     Route::get('your_reservations', 'ReservationController@your_reservations')->name('your-reservations');
     Route::get('your_trips', 'ReservationController@your_trips')->name('your-trips');
+    Route::get('room_delete/{id}', 'RoomController@room_delete')->name('room_delete');
     
+    Route::resource('reservations', 'ReservationController');
     Route::resource('rooms', 'RoomController');
+
     // Route::get('rooms', 'RoomController@index')->name('rooms');
     // Route::get('show/{id}', 'RoomController@show')->name('show');
     // Route::get('edit/{id}', 'RoomController@edit')->name('edit');
